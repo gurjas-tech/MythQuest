@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Congratulations</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Fade-in + Zoom Page Transition */
+      .page-transition {
+        opacity: 0;
+        transform: scale(0.95);
+        animation: fadeInZoom 0.8s ease-out forwards;
+        max-width: 700px;
+        margin: 40px auto;
+        background: rgba(255 255 255 / 0.05);
+        border-radius: 15px;
+        padding: 25px 35px 40px;
+        box-shadow: 0 0 20px rgb(255 20 60 / 0.2);
+      }
+      @keyframes fadeInZoom {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Body Styling */
+      body {
+        background-color: rgb(130, 0, 13);
+        font-family: "Press Start 2P", Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        color: white;
+      }
+
+      /* Canvas Confetti */
+      #confetti-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        pointer-events: none;
+      }
+
+      /* Title */
+      .title {
+        color: white;
+        padding: 16px 0;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      /* Congrats Message */
+      .congrats {
+        color: yellow;
+        padding: 16px 0;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .highlight {
+        margin-top: 15px;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      /* Return Buttons */
+      .return {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+      }
+
+      /* Buttons */
+      .btn {
+        appearance: none;
+        background-color: #dc143c;
+        border: 2px solid #1a1a1a;
+        border-radius: 15px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 16px 40px;
+        font-family: "Press Start 2P", Helvetica, Arial, sans-serif;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* Question Section */
+      .question-section {
+        margin-top: 40px;
+        color: white;
+      }
+      .question-section textarea {
+        width: 100%;
+        font-family: "Press Start 2P", monospace, sans-serif;
+        font-size: 12px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        resize: vertical;
+        background: rgba(255 255 255 / 0.1);
+        color: white;
+        outline: none;
+        box-shadow: inset 0 0 6px rgba(255 20 60, 0.7);
+      }
+      .question-section textarea::placeholder {
+        color: #ff7f7f;
+      }
+      .submit-btn {
+        margin-top: 12px;
+        background-color: #dc143c;
+        border: none;
+        padding: 14px 30px;
+        border-radius: 15px;
+        font-family: "Press Start 2P", monospace, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .submit-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .question-display {
+        margin-top: 30px;
+        max-height: 250px;
+        overflow-y: auto;
+        background: rgba(255 255 255 / 0.05);
+        padding: 15px 20px;
+        border-radius: 15px;
+        box-shadow: inset 0 0 10px rgba(255 20 60, 0.5);
+      }
+      .question-display p {
+        background: rgba(220, 20, 60, 0.3);
+        margin: 8px 0;
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="page-transition">
+      <div class="title">
+        <h1>MythQuest</h1>
+      </div>
+      <div class="congrats">
+        <h1>🎉 Congratulations!</h1>
+        <p>
+          You’ve completed <strong>MythQuest</strong> and uncovered the truths
+          behind Indigenous myths.
+        </p>
+        <p class="highlight">Knowledge is your greatest treasure. 🪶</p>
+      </div>
+      <div class="return">
+        <a href="index.html"><button class="btn">Home</button></a>
+        <a href="quiz.html"><button class="btn">Play Again</button></a>
+      </div>
+
+      <!-- Question Section -->
+      <div class="question-section">
+        <label
+          for="question-input"
+          style="
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+          "
+        >
+          Ask a question:
+        </label>
+        <textarea
+          id="question-input"
+          placeholder="Type your question here..."
+          rows="3"
+        ></textarea>
+        <button class="submit-btn" id="submit-btn">Submit</button>
+
+        <div class="question-display" id="question-display"></div>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script>
+      // Confetti Animation Setup
+      const canvas = document.getElementById("confetti-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const confetti = [];
+
+      for (let i = 0; i < 150; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 10 + 5,
+          color: "hsl(" + Math.floor(Math.random() * 360) + ", 100%, 50%)",
+          tilt: Math.random() * 10 - 10,
+          tiltAngle: 0,
+          tiltAngleIncrement: Math.random() * 0.1 + 0.05,
+        });
+      }
+
+      function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach((c) => {
+          ctx.beginPath();
+          ctx.lineWidth = c.r / 2;
+          ctx.strokeStyle = c.color;
+          ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
+          ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r);
+          ctx.stroke();
+        });
+
+        updateConfetti();
+        requestAnimationFrame(drawConfetti);
+      }
+
+      function updateConfetti() {
+        confetti.forEach((c) => {
+          c.y += Math.cos(c.d) + 1 + c.r / 2;
+          c.x += Math.sin(c.d);
+          c.tiltAngle += c.tiltAngleIncrement;
+          c.tilt = Math.sin(c.tiltAngle) * 15;
+
+          if (c.y > canvas.height) {
+            c.y = -10;
+            c.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      drawConfetti();
+
+      // Question Persistence Code
+      const input = document.getElementById("question-input");
+      const submit = document.getElementById("submit-btn");
+      const display = document.getElementById("question-display");
+
+      // Load questions from localStorage and display them
+      function loadQuestions() {
+        const savedQuestions =
+          JSON.parse(localStorage.getItem("questions")) || [];
+        display.innerHTML = "";
+        savedQuestions.forEach((q) => {
+          const p = document.createElement("p");
+          p.textContent = q;
+          display.appendChild(p);
+        });
+      }
+
+      // Save question to localStorage
+      function saveQuestion(question) {
+        const savedQuestions =
+          JSON.parse(localStorage.getItem("questions")) || [];
+        savedQuestions.push(question);
+        localStorage.setItem("questions", JSON.stringify(savedQuestions));
+      }
+
+      // Handle submit button click
+      submit.addEventListener("click", () => {
+        const question = input.value.trim();
+        if (question === "") return; // ignore empty
+
+        // Show question on screen
+        const p = document.createElement("p");
+        p.textContent = question;
+        display.appendChild(p);
+
+        // Save to localStorage
+        saveQuestion(question);
+
+        // Clear input
+        input.value = "";
+      });
+
+      // Load questions on page load
+      window.addEventListener("load", loadQuestions);
+    </script>
+  </body>
+</html>
