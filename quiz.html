@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Myth Pick: Indigenous Legends</title>
+    <link rel="stylesheet" href="quiz.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-white shadow-xl rounded-2xl p-8 max-w-xl w-full space-y-6">
+      <h1 class="text-3xl font-bold text-center text-amber-800">
+        🪶 Myth Pick: Indigenous Legends
+      </h1>
+
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="myth.html">Myth vs Reality</a>
+        <a href="quiz.html">Knowledge Teaser</a>
+      </nav>
+
+      <div id="question" class="text-lg font-medium text-gray-800 hidden"></div>
+
+      <div id="options" class="space-y-3">
+        <!-- Options will be inserted here -->
+      </div>
+      <p id="progress" class="text-center text-gray-600 font-medium mt-4"></p>
+
+      <div
+        id="result"
+        class="text-xl text-center font-semibold mt-4 hidden"
+      ></div>
+
+      <button
+        onclick="nextQuestion()"
+        id="next"
+        class="hidden w-full bg-amber-600 text-white p-3 rounded-xl hover:bg-amber-700"
+      >
+        Next Question
+      </button>
+    </div>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>

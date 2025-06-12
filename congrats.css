@@ -1,0 +1,164 @@
+/* Fade-in + Zoom Page Transition */
+.page-transition {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInZoom 0.8s ease-out forwards;
+}
+
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Body Styling */
+body {
+  background-color: rgb(130, 0, 13);
+  font-family: "Press Start 2P", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  color: white;
+}
+
+/* Canvas Confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Title */
+.title {
+  color: white;
+  padding: 16px 55px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Congrats Message */
+.congrats {
+  color: yellow;
+  padding: 16px 55px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.highlight {
+  margin-top: 15px;
+}
+
+/* Return Buttons */
+.return {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  background-color: #dc143c;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 40px;
+  font-family: "Press Start 2P", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Question Section Container */
+.question-section {
+  max-width: 600px;
+  margin: 40px auto 20px;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #dc143c;
+  border-radius: 15px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Input area for question */
+.question-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 2px solid #dc143c;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.question-input::placeholder {
+  color: #f4f4f4aa;
+}
+
+.question-input:focus {
+  border-color: #ff4557;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 15px;
+  background-color: #dc143c;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  transition: transform 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Display area for questions */
+.question-display {
+  margin-top: 30px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  border: 2px solid #dc143c;
+  padding: 15px 20px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+  color: #fff9c4;
+}
+
+/* Individual question styling */
+.question-display p {
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: rgba(220, 20, 60, 0.4);
+  border-radius: 8px;
+  word-wrap: break-word;
+  box-shadow: 0 0 6px #ff4557;
+}

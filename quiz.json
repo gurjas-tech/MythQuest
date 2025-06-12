@@ -1,0 +1,107 @@
+[
+  {
+    "question": "What is a stereotype?",
+    "options": [
+      "A traditional story passed down generations",
+      "A common judgment or myth about a group that is not always true",
+      "A legal rule",
+      "A cultural celebration"
+    ],
+    "answer": "A common judgment or myth about a group that is not always true",
+    "explanation": "Stereotypes are generalized beliefs or myths that are often untrue and can harm communities."
+  },
+  {
+    "question": "Do all Indigenous peoples in Canada not pay taxes?",
+    "options": [
+      "Yes, none of them pay taxes",
+      "No, only those with treaties and living on reserves may be exempt",
+      "Yes, if they are First Nations",
+      "No, none of them ever pay taxes"
+    ],
+    "answer": "No, only those with treaties and living on reserves may be exempt",
+    "explanation": "Only those Indigenous peoples living on reserves with special treaties may qualify for limited tax exemption."
+  },
+  {
+    "question": "How much tax revenue do Indigenous peoples contribute to Canada?",
+    "options": ["$700 million", "$10 million", "$0", "$70 million"],
+    "answer": "$70 million",
+    "explanation": "Indigenous peoples pay around $70 million in taxes, despite common myths suggesting otherwise."
+  },
+  {
+    "question": "Do Indigenous peoples automatically receive free housing?",
+    "options": [
+      "Yes, all of them get free housing",
+      "Only in very rare cases, such as areas with high homelessness",
+      "Yes, if they are elders",
+      "No, they pay more than others"
+    ],
+    "answer": "Only in very rare cases, such as areas with high homelessness",
+    "explanation": "Free housing is only given in specific extreme cases, not to all Indigenous peoples."
+  },
+  {
+    "question": "What must Indigenous peoples do to get housing on reserves?",
+    "options": [
+      "Nothing, it's automatic",
+      "Pay a large fee upfront",
+      "Wait on a long list and pay like everyone else",
+      "Move out of Canada"
+    ],
+    "answer": "Wait on a long list and pay like everyone else",
+    "explanation": "They must apply, wait on a list, and still pay full cost for the housing."
+  },
+  {
+    "question": "Why do stereotypes harm Indigenous peoples?",
+    "options": [
+      "They promote learning",
+      "They help communities connect",
+      "They create misunderstandings and disrespect",
+      "They improve relationships"
+    ],
+    "answer": "They create misunderstandings and disrespect",
+    "explanation": "Stereotypes divide communities and lead to misjudgments, harming cultural respect and unity."
+  },
+  {
+    "question": "What should society do instead of believing myths?",
+    "options": [
+      "Watch more social media",
+      "Listen to stereotypes",
+      "Learn about cultures and ask questions",
+      "Avoid talking about culture"
+    ],
+    "answer": "Learn about cultures and ask questions",
+    "explanation": "Understanding and respecting others helps prevent the spread of harmful stereotypes."
+  },
+  {
+    "question": "What is a reason many people still believe these myths?",
+    "options": [
+      "Because they are true",
+      "Because they don’t question what others believe",
+      "Because Indigenous people tell them",
+      "Because they’re in the news daily"
+    ],
+    "answer": "Because they don’t question what others believe",
+    "explanation": "People often follow others blindly to fit in, instead of researching the truth themselves."
+  },
+  {
+    "question": "Do all Indigenous people live on reserves?",
+    "options": [
+      "Yes, they must live there",
+      "No, many live in cities and towns across Canada",
+      "Yes, they are not allowed to leave",
+      "Yes, it’s the only option"
+    ],
+    "answer": "No, many live in cities and towns across Canada",
+    "explanation": "Over half of Indigenous peoples in Canada live in urban areas, not on reserves."
+  },
+  {
+    "question": "Why is it important to challenge Indigenous stereotypes?",
+    "options": [
+      "To fit in at school",
+      "To make them feel different",
+      "To build truth, respect, and equality",
+      "To protect old myths"
+    ],
+    "answer": "To build truth, respect, and equality",
+    "explanation": "Challenging stereotypes creates understanding and supports justice for Indigenous peoples."
+  }
+]
